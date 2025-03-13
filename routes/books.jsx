@@ -1,11 +1,18 @@
 const { Router } = require('express')
-const { getBooks, patchBooks, deleteBooks, postBooks } = require('../controllers/books.jsx')
+const { getBooks,
+    patchBooks,
+    deleteBooks,
+    postBooksController,
+    getBook
+} = require('../controllers/books.jsx')
 
 router = Router()
 
 router.get('/', getBooks)
 
-router.post('/', postBooks)
+router.get('/:id', getBook)
+
+router.post('/', postBooksController)
 
 router.patch('/', patchBooks)
 

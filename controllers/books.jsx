@@ -1,15 +1,34 @@
+const fs = require('fs')
+const { getAllBooks, getBookById, postBooksService } = require('../services/books.jsx')
+
+
+
 const getBooks = (req, res) => {
     try {
-        res.send('Olá Mundo do Brasil!')
+        const books = getAllBooks()
+        res.send(books)
     } catch (error) {
         res.status(500)
         res.send(error.message)
     }
 }
 
-const postBooks = (req, res) => {
+const getBook = (req, res) => {
+    const id = req.params.id
     try {
-        res.send('Você fez uma requisição do tipo POST')
+        const book = getBookById(id)
+        res.send(book)
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
+}
+
+const postBooksController = (req, res) => {
+    const newBook = req.body
+    try {
+        postBooksService(newBook)
+        res.send('Livro adicionado com sucesso')
     } catch (error) {
         res.status(500)
         res.send(error.message)
@@ -36,13 +55,10 @@ const deleteBooks = (req, res) => {
 
 
 
-
-
-
-
 module.exports = {
     getBooks,
-    postBooks,
+    postBooksController,
     patchBooks,
-    deleteBooks
+    deleteBooks,
+    getBook
 }
