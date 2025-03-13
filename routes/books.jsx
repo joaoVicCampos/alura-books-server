@@ -1,9 +1,15 @@
 const { Router } = require('express')
+const { getBooks, patchBooks, deleteBooks, postBooks } = require('../controllers/books.jsx')
 
 router = Router()
 
-router.get('/', (req, res) => {
-    res.send('Olá Mundo!')
-})
+router.get('/', getBooks)
+
+router.post('/', postBooks)
+
+router.patch('/', patchBooks)
+
+router.delete('/', deleteBooks)
+
 
 module.exports = router
