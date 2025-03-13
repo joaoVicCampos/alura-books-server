@@ -28,6 +28,7 @@ const postBooksController = (req, res) => {
     const newBook = req.body
     try {
         postBooksService(newBook)
+        res.status(201)
         res.send('Livro adicionado com sucesso')
     } catch (error) {
         res.status(500)

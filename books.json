@@ -18,5 +18,13 @@
     {
         "id": "5",
         "nome": "Livro extraordinário"
+    },
+    {
+        "id": "6",
+        "nome": "Livro mais ou menos"
+    },
+    {
+        "id": "7",
+        "nome": "Livro bem legal"
     }
 ]
