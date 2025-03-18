@@ -1,5 +1,9 @@
 const fs = require('fs')
-const { getAllBooks, getBookById, postBooksService } = require('../services/books.jsx')
+const { getAllBooks,
+    getBookById,
+    postBooksService,
+    patchBookService
+} = require('../services/books.jsx')
 
 
 
@@ -36,9 +40,13 @@ const postBooksController = (req, res) => {
     }
 }
 
-const patchBooks = (req, res) => {
+const patchBookController = (req, res) => {
     try {
-        res.send('Você fez uma requisição do tipo PATCH')
+        const id = req.params.id
+        const body = req.body
+        patchBookService(body, id)
+        res.status(201)
+        res.send('Livro alterado com sucesso')
     } catch (error) {
         res.status(500)
         res.send(error.message)
@@ -59,7 +67,7 @@ const deleteBooks = (req, res) => {
 module.exports = {
     getBooks,
     postBooksController,
-    patchBooks,
+    patchBookController,
     deleteBooks,
     getBook
 }

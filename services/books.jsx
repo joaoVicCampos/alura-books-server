@@ -17,8 +17,20 @@ const postBooksService = (newBook) => {
     fs.writeFileSync('books.json', JSON.stringify(newDataBooks))
 }
 
+const patchBookService = (uptades, id) => {
+    let books = JSON.parse(fs.readFileSync('books.json'))
+    const foundIndex = books.findIndex((book) => book.id === id)
+    const uptadetBooks = { ...books[foundIndex], ...uptades }
+
+    books[foundIndex] = uptadetBooks
+    fs.writeFileSync('books.json', JSON.stringify(books))
+
+
+}
+
 module.exports = {
     getAllBooks,
     getBookById,
-    postBooksService
+    postBooksService,
+    patchBookService
 }
