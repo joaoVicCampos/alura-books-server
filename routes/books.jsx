@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const { getBooks,
     patchBookController,
-    deleteBooks,
+    deleteBookController,
     postBooksController,
     getBook
 } = require('../controllers/books.jsx')
@@ -16,7 +16,7 @@ router.post('/', postBooksController)
 
 router.patch('/:id', patchBookController)
 
-router.delete('/', deleteBooks)
+router.delete('/:id', deleteBookController)
 
 
 module.exports = router

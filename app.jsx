@@ -4,10 +4,10 @@ const bookRoute = require('./routes/books.jsx')
 const app = express()
 app.use(express.json())
 
-const port = 8000
+const port = 8080
 
 app.use('/books', bookRoute)
 
 app.listen(port, () => {
-    console.log(`Estou on na pora ${8000}`);
+    console.log(`Estou on na pora ${8080}`);
 })

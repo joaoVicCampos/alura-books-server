@@ -2,7 +2,8 @@ const fs = require('fs')
 const { getAllBooks,
     getBookById,
     postBooksService,
-    patchBookService
+    patchBookService,
+    deleteBookService
 } = require('../services/books.jsx')
 
 
@@ -18,8 +19,8 @@ const getBooks = (req, res) => {
 }
 
 const getBook = (req, res) => {
-    const id = req.params.id
     try {
+        const id = req.params.id
         const book = getBookById(id)
         res.send(book)
     } catch (error) {
@@ -53,9 +54,11 @@ const patchBookController = (req, res) => {
     }
 }
 
-const deleteBooks = (req, res) => {
+const deleteBookController = (req, res) => {
     try {
-        res.send('Você fez uma requisição do tipo DELETE')
+        const id = req.params.id
+        deleteBookService(id)
+        res.send('Livro apagado com sucesso')
     } catch (error) {
         res.status(500)
         res.send(error.message)
@@ -68,6 +71,6 @@ module.exports = {
     getBooks,
     postBooksController,
     patchBookController,
-    deleteBooks,
+    deleteBookController,
     getBook
 }

@@ -1,1 +1,10 @@
-[{"id":"1","nome":"Livro Foda"},{"id":"2","nome":"Livro muito legal"},{"id":"3","nome":"Livro super cool"}]
+[
+    {
+        "id": "1",
+        "nome": "Livro Foda"
+    },
+    {
+        "id": "2",
+        "nome": "Livro muito legal"
+    }
+]
