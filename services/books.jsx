@@ -25,7 +25,7 @@ const patchBookService = (uptades, id) => {
     fs.writeFileSync('books.json', JSON.stringify(books))
 }
 
-const deleteBookService = () => {
+const deleteBookService = (id) => {
     const books = JSON.parse(fs.readFileSync('books.json'))
     const filtedBooks = books.filter((book) => book.id !== id)
     fs.writeFileSync('books.json', JSON.stringify(filtedBooks))
